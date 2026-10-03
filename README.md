@@ -1,75 +1,82 @@
-# React + TypeScript + Vite
+# JobSync Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + TypeScript frontend for **JobSync**, a job board platform with a LinkedIn-style permission system. Any user can create a company and post jobs. There is no admin role, only ownership-based access control.
 
-Currently, two official plugins are available:
+This app consumes the [JobSync Backend API](https://github.com/anjumhere/Jobsync-Backend).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+> Status: work in progress.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Layer        | Technology     |
+| ------------ | -------------- |
+| Framework    | React          |
+| Language     | TypeScript     |
+| Build tool   | Vite           |
+| Styling      | Tailwind CSS   |
+| Routing      | React Router   |
+| HTTP client  | Axios          |
+| Server state | TanStack Query |
 
-## Expanding the ESLint configuration
+## Features (planned)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Browse, search and filter jobs with pagination
+- View job and company details
+- Register, login and logout (JWT in httpOnly cookies)
+- Save jobs and apply with a cover note
+- Track and withdraw applications
+- Create and manage companies
+- Post, edit and toggle jobs
+- Review applications and update their status
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+```bash
+# Clone the repository
+git clone https://github.com/anjumhere/Jobsync-Frontend.git
+cd Jobsync-Frontend
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Install dependencies
+npm install
 
+# Start the development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+The app runs at `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Environment Variables
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Create a `.env` file in the project root:
 
 ```
+VITE_API_URL=https://jobsyc.bonto.run/api/v1
+```
+
+For local backend development, point it at your local server instead, for example `http://localhost:8000/api/v1`. The backend's `CORS_ORIGIN` must match the frontend URL, and credentials must be allowed so cookies work.
+
+## Scripts
+
+| Command           | Description                          |
+| ----------------- | ------------------------------------ |
+| `npm run dev`     | Start the development server         |
+| `npm run build`   | Type-check and build for production  |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint`    | Run ESLint                           |
+
+## Project Structure
+
+```
+src/
+├── components/   # Shared UI components
+├── features/     # Feature-based modules (auth, jobs, companies, applications)
+├── lib/          # API client and helpers
+├── types/        # TypeScript types mirroring backend models
+├── App.tsx
+└── main.tsx
+```
+
+## Author
+
+**Anjum**
+GitHub: [@anjumhere](https://github.com/anjumhere)
