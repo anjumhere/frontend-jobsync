@@ -64,3 +64,12 @@ export interface Application {
   createdAt: string;
   updatedAt: string;
 }
+export interface Pagination {
+  page: number;
+  total: number;
+  totalPages: number;
+}
+
+export interface JobListData extends Pagination {
+  job: Job[];
+}

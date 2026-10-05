@@ -1,0 +1,90 @@
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { api } from "../lib/api";
+import { pickList, inputCls } from "../lib/helpers";
+import type { Job } from "../types";
+import JobCard from "../components/JobCard";
+import Pager from "../components/Pager";
+
+export default function Jobs() {
+  const [params, setParams] = useSearchParams();
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [totalPages, setTotalPages] = useState(1);
+  const key = params.toString();
+  const [loadedKey, setLoadedKey] = useState<string | null>(null);
+  const loading = loadedKey !== key;
+  const page = Number(params.get("page") ?? 1);
+
+  useEffect(() => {
+    api
+      .get("/jobs", { params: { ...Object.fromEntries(params), limit: 9 } })
+      .then((res) => {
+        setJobs(pickList<Job>(res.data.data));
+        setTotalPages(res.data.data?.totalPages ?? 1);
+      })
+      .catch(() => setJobs([]))
+      .finally(() => setLoadedKey(key));
+  }, [params, key]);
+
+  const update = (name: string, value: string) => {
+    const next = new URLSearchParams(params);
+    if (value) next.set(name, value);
+    else next.delete(name);
+    if (name !== "page") next.delete("page");
+    setParams(next);
+  };
+
+  return (
+    <div className="mx-auto max-w-6xl px-4 py-12">
+      <h1 className="text-4xl font-bold text-slate-950">
+        Find your <span className="italic text-pink-600">next job.</span>
+      </h1>
+      <div className="mt-8 grid gap-3 md:grid-cols-3">
+        <input
+          className={inputCls}
+          placeholder="Search title or keyword"
+          defaultValue={params.get("search") ?? ""}
+          onChange={(e) => update("search", e.target.value)}
+        />
+        <input
+          className={inputCls}
+          placeholder="Location"
+          defaultValue={params.get("location") ?? ""}
+          onChange={(e) => update("location", e.target.value)}
+        />
+        <select
+          className={inputCls}
+          value={params.get("jobType") ?? ""}
+          onChange={(e) => update("jobType", e.target.value)}
+        >
+          <option value="">All job types</option>
+          {["full-time", "part-time", "contract", "internship", "remote"].map(
+            (t) => (
+              <option key={t}>{t}</option>
+            ),
+          )}
+        </select>
+      </div>
+      <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {loading
+          ? Array.from({ length: 6 }).map((_, i) => (
+              <div
+                key={i}
+                className="h-52 animate-pulse rounded-2xl bg-slate-200/70"
+              />
+            ))
+          : jobs.map((j) => <JobCard key={j._id} job={j} />)}
+      </div>
+      {!loading && jobs.length === 0 && (
+        <p className="mt-10 text-center text-slate-500">
+          No jobs match your search.
+        </p>
+      )}
+      <Pager
+        page={page}
+        totalPages={totalPages}
+        onChange={(p) => update("page", String(p))}
+      />
+    </div>
+  );
+}
