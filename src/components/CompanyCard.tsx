@@ -14,14 +14,31 @@ export default function CompanyCard() {
       <button className="mt-6 bg-pink-600 hover:bg-pink-700 text-white font-medium px-3 py-3 text-lg  rounded-full transition">
         Start hiring &rarr;
       </button>
-      <div className="flex flex-col text-white bg-[#1a2224] p-5 w-full">
-        <span>Reach Agent-WORKING NOW</span>
+      <div className="flex flex-col text-white bg-[#1a2224] p-5 mt-5  rounded-xl h-full w-full">
+        <span className="mb-2 text-[#838687] text-xs tracking-wider font-semibold">
+          REACH AGENT-WORKING NOW
+        </span>
+
+        <div className="border my-2 border-gray-700"></div>
         <div className="flex flex-row  justify-between ">
           <h3>
             Priya Shah <span className="px-3">Sr Eng @Nioton</span>
           </h3>{" "}
-          <span>Replied</span>
+          <button className="py-1 text-xs font-semibold  text-white px-3 bg-gray-600  rounded-xl">
+            REPLIED
+          </button>
         </div>
+        <div className="border my-2 border-gray-700"></div>
+        <div className="flex flex-row  justify-between ">
+          <h3>
+            Priya Shah <span className="px-3">Sr Eng @Nioton</span>
+          </h3>{" "}
+          <button className="py-2 text-xs font-semibold tracking-wider text-white px-1 bg-pink-700  rounded-full">
+            REPLIED
+          </button>
+        </div>
+
+        <div className="border my-2 border-gray-700"></div>
       </div>
     </div>
   );
