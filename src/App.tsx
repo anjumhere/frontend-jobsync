@@ -1,7 +1,10 @@
-export default function App() {
+import Navbar from "./components/Navbar";
+
+function App() {
   return (
-    <div>
-      <h1>hello</h1>
+    <div className="min-h-screen bg-white text-slate-900">
+      <Navbar />
     </div>
   );
 }
+export default App;
