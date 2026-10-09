@@ -12,19 +12,19 @@ const Navbar = () => {
         <div className="hidden items-center gap-10 md:absolute md:left-1/2 md:flex md:-translate-x-1/2">
           <a
             href="/jobs"
-            className="text-[15px] font-medium text-slate-600 hover:text-slate-950"
+            className="rounded-full border border-gray-100 px-4 py-2 text-[15px] font-medium text-slate-600 transition hover:bg-gray-100 hover:text-slate-950"
           >
             Find jobs
           </a>
           <a
             href="/companies"
-            className="text-[15px] font-medium text-slate-600 hover:text-slate-950"
+            className="rounded-full border border-gray-100 px-4 py-2 text-[15px] font-medium text-slate-600 transition hover:bg-gray-100 hover:text-slate-950"
           >
             Companies
           </a>
           <a
             href="/companies/new"
-            className="text-[15px] font-medium text-slate-600 hover:text-slate-950"
+            className="rounded-full border border-gray-100 px-4 py-2 text-[15px] font-medium text-slate-600 transition hover:bg-gray-100 hover:text-slate-950"
           >
             For employers
           </a>
