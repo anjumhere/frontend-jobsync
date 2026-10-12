@@ -72,14 +72,14 @@ export default function Hero() {
       {/* Audience cards */}
       <section
         aria-label="Explore hiring and job opportunities"
-        className="mx-auto mt-12 grid max-w-[1000px] grid-cols-1 items-stretch gap-5 sm:mt-16 md:grid-cols-2 md:gap-6"
+        className="mx-auto mt-12 grid max-w-[1240px] grid-cols-1 items-stretch gap-5 sm:mt-16 md:grid-cols-2 md:gap-6"
       >
         <Company />
         <Candidate />
       </section>
 
       {/* Footer note */}
-      <div className="mx-auto mt-10 flex max-w-[1000px] flex-wrap items-center justify-center gap-x-3 gap-y-2 text-center text-[11px] text-[#a1a1aa]">
+      <div className="mx-auto mt-10 flex max-w-[1240px] flex-wrap items-center justify-center gap-x-3 gap-y-2 text-center text-[11px] text-[#a1a1aa]">
         <span>Made for the next generation of work</span>
         <span className="text-pink-300">✳</span>
         <span>Find your people. Find your place.</span>
