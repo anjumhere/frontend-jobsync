@@ -1,13 +1,5 @@
-import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
+import Home from "./components/Home.tsx";
 
-function App() {
-  return (
-    <div className="min-h-screen bg-white text-slate-900">
-      <Navbar />
-
-      <Hero />
-    </div>
-  );
+export default function App() {
+  return <Home />;
 }
-export default App;
