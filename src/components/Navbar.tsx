@@ -1,7 +1,7 @@
 const Navbar = () => {
   return (
     <header className="sticky top-0 z-30 border-b border-slate-200 bg-white">
-      <nav className="relative mx-auto flex h-[78px] max-w-6xl items-center justify-between px-4">
+      <nav className="relative mx-auto flex h-[78px] max-w-[1240px] items-center justify-between px-4">
         <a
           href="/"
           className="text-3xl font-extrabold tracking-tight text-slate-950"
