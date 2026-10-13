@@ -15,7 +15,7 @@ export default function LogoStrip() {
   const row = [...logos, ...logos];
   return (
     <section
-      className="mx-auto mt-24 max-w-[1240px]"
+      className="mx-auto mt-24 max-w-310"
       aria-label="Companies hiring on Hirely"
     >
       <p className="text-center text-xs font-medium text-[#8a9094]">
