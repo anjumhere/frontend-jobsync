@@ -14,7 +14,7 @@ const cols = [
 export default function Footer() {
   return (
     <footer className="mt-28 border-t border-[#f0ebed] bg-white">
-      <div className="mx-auto grid max-w-[1240px] gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.5fr_repeat(4,1fr)]">
+      <div className="mx-auto grid max-w-310 gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.5fr_repeat(4,1fr)]">
         <div>
           <a
             href="/"
@@ -22,7 +22,7 @@ export default function Footer() {
           >
             Hirely<span className="text-[#e52270]">.</span>
           </a>
-          <p className="mt-3 max-w-[220px] text-sm leading-6 text-[#85888d]">
+          <p className="mt-3 max-w-55 text-sm leading-6 text-[#85888d]">
             Find your people. Find your place.
           </p>
         </div>

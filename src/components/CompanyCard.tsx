@@ -17,7 +17,7 @@ export default function Company() {
           <span className="font-normal italic text-pink-300">dream team.</span>
         </h2>
 
-        <p className="mt-4 max-w-[360px] text-sm leading-6 text-white/65">
+        <p className="mt-4 max-w-90text-sm leading-6 text-white/65">
           Meet exceptional people, connect with ambitious talent, and find your
           next great hire.
         </p>
@@ -33,8 +33,8 @@ export default function Company() {
         </a>
       </div>
 
-      <div className="relative mt-8 flex-1 rounded-2xl border border-white/[0.10] bg-[#182123]/90 p-4 sm:p-5">
-        <div className="flex items-center justify-between gap-2 border-b border-white/[0.08] pb-4">
+      <div className="relative mt-8 flex-1 rounded-2xl border border-white/10 bg-[#182123]/90 p-4 sm:p-5">
+        <div className="flex items-center justify-between gap-2 border-b border-white/8 pb-4">
           <div>
             <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
               Talent pipeline
@@ -50,7 +50,7 @@ export default function Company() {
           </span>
         </div>
 
-        <div className="divide-y divide-white/[0.08]">
+        <div className="divide-y divide-white/8">
           <div className="flex items-center gap-3 py-4">
             <img
               src="https://i.pravatar.cc/80?img=47"
@@ -84,7 +84,7 @@ export default function Company() {
               </p>
             </div>
 
-            <span className="shrink-0 rounded-lg bg-white/[0.08] px-2.5 py-1.5 text-[9px] font-bold tracking-wide text-white/65 sm:text-[10px]">
+            <span className="shrink-0 rounded-lg bg-white/8 px-2.5 py-1.5 text-[9px] font-bold tracking-wide text-white/65 sm:text-[10px]">
               CONTACTED
             </span>
           </div>
